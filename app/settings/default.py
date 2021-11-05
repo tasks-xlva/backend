@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import dotenv_values
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +25,8 @@ SECRET_KEY = "django-insecure-wt=)1!6^zu*kker^(r(xks8iumm9e6l9couj!)$#kinvz!s^(e
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+env = {**dotenv_values("./.envs/.local/.postgres.env"), **os.environ}
 
 ALLOWED_HOSTS = []
 
@@ -77,7 +80,6 @@ DATABASES = {
         "HOST": "127.0.0.1",
         "PORT": "5432",
         "USER": "root",
-        "PASSWORD": f"{os.environ['POSTGRES_PASSWORD']}",
         "NAME": "tasks",
     }
 }
@@ -112,11 +114,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
