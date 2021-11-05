@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:alpine
+    restart: always
+    env_file:
+      - ./.envs/.local/.postgres.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  django:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: ./compose/local/django/dockerfile
+    volumes:
+      - .:/app
+    env_file:
+      - ./.envs/.local/.postgres.env
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - '8000:8000'
+
+volumes:
+  postgres_data:
