@@ -2,7 +2,7 @@ install:
 	pip install -r requirements/local.txt
 
 start:
-	docker-compose up -d && python3 manage.py runserver 8000
+	docker-compose up -d
 
 migrations:
 	python3 manage.py makemigrations

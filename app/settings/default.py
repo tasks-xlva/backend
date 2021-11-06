@@ -28,8 +28,6 @@ DEBUG = True
 
 env = os.environ
 
-ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
