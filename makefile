@@ -1,5 +1,5 @@
 install:
-	pip install -r requirements/local.txt
+	pip install -r ./requirements.txt
 
 start:
 	docker-compose up -d

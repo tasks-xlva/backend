@@ -2,8 +2,7 @@ version: '3.9'
 
 services:
   postgres:
-    image: postgres:alpine
-    restart: always
+    image: postgres:13-alpine
     env_file:
       - ./.envs/.local/.postgres.env
     volumes:
