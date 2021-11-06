@@ -22,9 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-wt=)1!6^zu*kker^(r(xks8iumm9e6l9couj!)$#kinvz!s^(e"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 env = os.environ
 
 # Application definition
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
