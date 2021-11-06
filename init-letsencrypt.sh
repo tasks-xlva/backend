@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(tasks.api.xlvn.ru www.tasks.api.xlvn.ru)
+domains=(tasks.api.xlvn.ru)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="xalvaine@gmail.com" # Adding a valid address is strongly recommended
