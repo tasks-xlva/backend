@@ -2,7 +2,7 @@ install:
 	pip install -r requirements/local.txt
 
 start:
-	docker-compose up -d
+	docker-compose up -d && python3 manage.py runserver 8000
 
 migrations:
 	python3 manage.py makemigrations
@@ -10,6 +10,8 @@ migrations:
 migrate:
 	python3 manage.py migrate
 
+cert:
+	./init-letsencrypt.sh
+
 production:
 	docker-compose -f production.yml up -d --build
-

@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-wt=)1!6^zu*kker^(r(xks8iumm9e6l9couj!)$#kinvz!s^(e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-env = {**dotenv_values("./.envs/.local/.postgres.env"), **os.environ}
+env = os.environ
 
 ALLOWED_HOSTS = []
 
@@ -82,7 +82,6 @@ WSGI_APPLICATION = "app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "HOST": "127.0.0.1",
         "PORT": "5432",
         "USER": "root",
         "NAME": "tasks",
