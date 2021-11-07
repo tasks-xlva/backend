@@ -9,17 +9,32 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('groups', '0001_initial'),
+        ("groups", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Subject',
+            name="Subject",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('description', models.TextField(max_length=1000)),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subjects', to='groups.group')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("description", models.TextField(max_length=1000)),
+                (
+                    "group",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="subjects",
+                        to="groups.group",
+                    ),
+                ),
             ],
         ),
     ]
