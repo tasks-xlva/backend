@@ -2,7 +2,6 @@ from rest_framework import routers
 from app.groups.views import GroupViewSet
 from app.subjects.views import SubjectViewSet
 from app.tasks.views import TaskViewSet
-from django.contrib import admin
 from django.urls import path, re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -38,7 +37,6 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("redoc", schema_view.with_ui("redoc"), name="schema-redoc"),
-    path("admin", admin.site.urls),
     *router.urls,
     path("token", DecoratedTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh", DecoratedTokenRefreshView.as_view(), name="token_refresh"),
