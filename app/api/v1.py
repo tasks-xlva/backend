@@ -1,10 +1,9 @@
 from rest_framework import routers
-from app.tasks import views
+from app.groups.views import GroupViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r"users", views.UserViewSet)
-router.register(r"groups", views.GroupViewSet)
+router.register(r"groups", GroupViewSet)
 
 urlpatterns = [
     *router.urls,

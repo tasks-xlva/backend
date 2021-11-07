@@ -29,7 +29,7 @@ env = os.environ
 
 # Application definition
 
-INSTALLED_APPS = [
+APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -39,6 +39,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
 ]
+
+ROUTES = [
+    "app.groups"
+]
+
+INSTALLED_APPS = APPS + ROUTES
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
