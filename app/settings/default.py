@@ -29,13 +29,16 @@ env = os.environ
 
 # Application definition
 
-APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+]
+
+OTHER_APPS = [
     "rest_framework",
     "drf_yasg",
 ]
@@ -46,7 +49,7 @@ ROUTES = [
     "app.tasks",
 ]
 
-INSTALLED_APPS = APPS + ROUTES
+INSTALLED_APPS = DJANGO_APPS + OTHER_APPS + ROUTES
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
