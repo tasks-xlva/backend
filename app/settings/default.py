@@ -41,7 +41,8 @@ APPS = [
 ]
 
 ROUTES = [
-    "app.groups"
+    "app.groups",
+    "app.subjects"
 ]
 
 INSTALLED_APPS = APPS + ROUTES
