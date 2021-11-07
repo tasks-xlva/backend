@@ -28,9 +28,12 @@ SECRET_KEY = "django-insecure-wt=)1!6^zu*kker^(r(xks8iumm9e6l9couj!)$#kinvz!s^(e
 
 env = os.environ
 
+AUTH_USER_MODEL = "users.User"
+
 # Application definition
 
 DJANGO_APPS = [
+    "routes.users",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
