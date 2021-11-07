@@ -45,9 +45,9 @@ OTHER_APPS = [
 ]
 
 ROUTES = [
-    "app.groups",
-    "app.subjects",
-    "app.tasks",
+    "routes.groups",
+    "routes.subjects",
+    "routes.tasks",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + OTHER_APPS + ROUTES

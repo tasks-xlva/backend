@@ -1,4 +1,4 @@
-from app.subjects.serializers import SubjectSerializer
+from routes.subjects.serializers import SubjectSerializer
 from .models import Group
 from rest_framework import serializers
 

@@ -1,5 +1,5 @@
 from django.db import models
-from app.subjects.models import Subject
+from routes.subjects.models import Subject
 
 
 class Task(models.Model):

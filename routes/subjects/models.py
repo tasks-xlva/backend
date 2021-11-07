@@ -1,5 +1,5 @@
 from django.db import models
-from app.groups.models import Group
+from routes.groups.models import Group
 
 
 class Subject(models.Model):

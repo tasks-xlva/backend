@@ -1,5 +1,5 @@
 from .models import Subject
-from app.tasks.serializers import TaskSerializer
+from routes.tasks.serializers import TaskSerializer
 from rest_framework import serializers
 
 

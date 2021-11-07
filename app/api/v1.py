@@ -1,7 +1,7 @@
 from rest_framework import routers
-from app.groups.views import GroupViewSet
-from app.subjects.views import SubjectViewSet
-from app.tasks.views import TaskViewSet
+from routes.groups.views import GroupViewSet
+from routes.subjects.views import SubjectViewSet
+from routes.tasks.views import TaskViewSet
 from django.urls import path, re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
