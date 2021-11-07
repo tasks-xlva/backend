@@ -42,6 +42,7 @@ DJANGO_APPS = [
 OTHER_APPS = [
     "rest_framework",
     "drf_yasg",
+    "corsheaders",
 ]
 
 ROUTES = [
@@ -54,6 +55,7 @@ INSTALLED_APPS = DJANGO_APPS + OTHER_APPS + ROUTES
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -154,3 +156,10 @@ SWAGGER_SETTINGS = {
     },
     "PERSIST_AUTH": True,
 }
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://tasks.xlvn.ru",
+]
