@@ -167,6 +167,7 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "Tasks API",
     "VERSION": "1",
     "COMPONENT_SPLIT_REQUEST": True,
+    "SERVE_INCLUDE_SCHEMA": False,
     "SWAGGER_UI_SETTINGS": {"persistAuthorization": True},
 }
 
