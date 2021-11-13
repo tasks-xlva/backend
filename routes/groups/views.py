@@ -4,7 +4,9 @@ from rest_framework import viewsets, permissions
 
 
 class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
+    queryset = Group.objects.none()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
-    paginator = None
+
+    def get_queryset(self):
+        return Group.objects.filter(users=self.request.user)
