@@ -1,5 +1,5 @@
 from .models import Group
-from .serializers import GroupSerializer
+from .serializers import *
 from rest_framework import viewsets, permissions
 
 
