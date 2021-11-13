@@ -1,7 +1,5 @@
-from .models import User
-from rest_framework import viewsets, mixins
-from rest_framework import permissions
-from .serializers import UserSerializer
+from rest_framework import viewsets, mixins, permissions
+from .serializers import *
 
 
 class UserViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
