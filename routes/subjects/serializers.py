@@ -1,11 +1,17 @@
 from .models import Subject
+from routes.groups.models import Group
 from routes.tasks.serializers import TaskSerializer
 from rest_framework import serializers
 
 
 class SubjectSerializer(serializers.HyperlinkedModelSerializer):
     tasks = TaskSerializer(many=True, read_only=True)
+    group_id = serializers.IntegerField()
 
     class Meta:
         model = Subject
-        fields = ["id", "name", "description", "tasks"]
+        fields = ["id", "name", "description", "tasks", "group_id"]
+
+    def create(self, validated_data):
+        group = Group.objects.get(pk=validated_data.pop("group_id"))
+        return Subject.objects.create(**validated_data, group=group)
