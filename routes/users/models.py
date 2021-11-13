@@ -37,9 +37,9 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["first_name", "last_name", "password"]
 
     username = None
-
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    email = models.EmailField(unique=True)
     groups = models.ManyToManyField(Group, related_name="users")
-
-    email = models.EmailField(unique=True, verbose_name="Почта")
 
     objects = UserManager()
