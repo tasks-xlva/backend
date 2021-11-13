@@ -44,6 +44,6 @@ urlpatterns = [
     *router.urls,
     path("token", DecoratedTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh", DecoratedTokenRefreshView.as_view(), name="token_refresh"),
-    path("me", MyProfileViewSet.as_view()),
-    path("me/password", MyPasswordView.as_view()),
+    path("users/me", MyProfileViewSet.as_view()),
+    path("users/me/password", MyPasswordView.as_view()),
 ]
