@@ -8,3 +8,11 @@ class MyProfileViewSet(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class MyPasswordView(generics.UpdateAPIView):
+    serializer_class = MyPasswordSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user

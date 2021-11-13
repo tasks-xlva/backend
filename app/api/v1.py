@@ -3,7 +3,7 @@ from routes.groups.views import GroupViewSet
 from routes.subjects.views import SubjectViewSet
 from routes.tasks.views import TaskViewSet
 from routes.users.views import UserViewSet
-from routes.me.views import MyProfileViewSet
+from routes.me.views import MyProfileViewSet, MyPasswordView
 
 from django.urls import path, re_path
 from rest_framework import permissions
@@ -45,4 +45,5 @@ urlpatterns = [
     path("token", DecoratedTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh", DecoratedTokenRefreshView.as_view(), name="token_refresh"),
     path("me", MyProfileViewSet.as_view()),
+    path("me/password", MyPasswordView.as_view()),
 ]
