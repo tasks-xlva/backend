@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
-from routes.groups.models import Group
 
 
 class UserManager(BaseUserManager):
@@ -37,9 +36,9 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["first_name", "last_name", "password"]
 
     username = None
+    groups = None
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     email = models.EmailField(unique=True)
-    groups = models.ManyToManyField(Group, related_name="users")
 
     objects = UserManager()
