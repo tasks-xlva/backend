@@ -9,4 +9,4 @@ class SubjectViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Subject.objects.filter(group__users=self.request.user)
+        return Subject.objects.filter(group__membership__user=self.request.user)

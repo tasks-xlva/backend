@@ -10,4 +10,4 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Task.objects.filter(subject__group__users=self.request.user)
+        return Task.objects.filter(subject__group__membership__user=self.request.user)
