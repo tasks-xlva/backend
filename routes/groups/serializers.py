@@ -10,6 +10,15 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ["id", "number", "subjects"]
         depth = 1
 
+    def create(self, validated_data):
+        print(validated_data)
+        group = Group.objects.create(**validated_data)
+        Membership.objects.create(
+            group=group, user=self.context["request"].user, role="EDITOR"
+        )
+
+        return group
+
 
 class GroupMembershipSerializer(serializers.ModelSerializer):
     class Meta:

@@ -21,3 +21,6 @@ class Membership(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="membership")
     role = models.CharField(max_length=15, choices=Role.choices)
+
+    def __str__(self):
+        return f"{self.group.number}, {self.user.first_name} {self.user.last_name}, {self.role}"
