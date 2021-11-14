@@ -15,6 +15,7 @@ from routes.subjects.views import SubjectViewSet
 from routes.tasks.views import TaskViewSet
 from routes.users.views import UserViewSet
 from routes.me.views import MyProfileViewSet, MyPasswordView
+from routes.files.views import FileViewSet
 
 router = routers.DefaultRouter(trailing_slash=False)
 
@@ -22,6 +23,7 @@ router.register(r"groups", GroupViewSet)
 router.register(r"subjects", SubjectViewSet)
 router.register(r"tasks", TaskViewSet)
 router.register(r"users", UserViewSet)
+router.register(r"files", FileViewSet)
 
 groups_router = routers.NestedDefaultRouter(router, r"groups", lookup="group")
 groups_router.register("memberships", MembershipViewSet)

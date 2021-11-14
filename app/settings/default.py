@@ -53,6 +53,7 @@ ROUTES = [
     "routes.groups",
     "routes.subjects",
     "routes.tasks",
+    "routes.files",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + OTHER_APPS + ROUTES
@@ -182,3 +183,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://tasks.xlvn.ru",
 ]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
