@@ -10,7 +10,7 @@ class SubjectSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Subject
-        fields = ["id", "name", "description", "tasks", "group_id"]
+        fields = ["id", "name", "description", "tasks", "group_id", "image"]
 
     def create(self, validated_data):
         group = Group.objects.get(pk=validated_data.pop("group_id"))

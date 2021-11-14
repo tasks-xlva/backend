@@ -8,7 +8,7 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "name", "description", "subject_id"]
+        fields = ["id", "name", "description", "subject_id", "attachments"]
 
     def create(self, validated_data):
         subject = Subject.objects.get(pk=validated_data.pop("subject_id"))
