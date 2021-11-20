@@ -7,11 +7,10 @@ from rest_framework import serializers
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ["id", "number", "subjects"]
+        fields = ["id", "number", "subjects", "uuid"]
         depth = 1
 
     def create(self, validated_data):
-        print(validated_data)
         group = Group.objects.create(**validated_data)
         Membership.objects.create(
             group=group, user=self.context["request"].user, role="EDITOR"
@@ -27,3 +26,20 @@ class GroupMembershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = Membership
         fields = "__all__"
+
+
+class JoinGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Membership
+        fields = ["group", "role"]
+        read_only_fields = ["group", "role"]
+
+    def create(self, validated_data):
+        group = Group.objects.get(
+            uuid=self.context["request"].parser_context.get("kwargs").get("uuid")
+        )
+        membership = Membership.objects.create(
+            group=group, user=self.context["request"].user, role="EDITOR"
+        )
+
+        return membership

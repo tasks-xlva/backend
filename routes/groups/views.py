@@ -1,5 +1,6 @@
 from .serializers import *
-from rest_framework import viewsets, permissions, mixins
+from rest_framework import viewsets, permissions, mixins, generics
+from rest_framework.decorators import action
 
 
 class GroupViewSet(
@@ -10,7 +11,7 @@ class GroupViewSet(
     viewsets.GenericViewSet,
 ):
     serializer_class = GroupSerializer
-    queryset = Group.objects.all()
+    queryset = Group.objects.none()
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
@@ -31,3 +32,9 @@ class MembershipViewSet(
         return Membership.objects.filter(
             user=self.request.user, group=self.kwargs["group_pk"]
         )
+
+
+class JoinGroupView(generics.CreateAPIView):
+    serializer_class = JoinGroupSerializer
+    queryset = Group.objects.all()
+    permission_classes = [permissions.IsAuthenticated]

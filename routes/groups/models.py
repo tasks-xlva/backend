@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from routes.users.models import User
@@ -5,12 +6,16 @@ from routes.users.models import User
 
 class Group(models.Model):
     number = models.CharField(max_length=10)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     def __str__(self):
         return self.number
 
 
 class Membership(models.Model):
+    class Meta:
+        unique_together = ["group", "user"]
+
     class Role(models.TextChoices):
         ADMIN = "ADMIN", _("Администратор")
         EDITOR = "EDITOR", _("Редактор")

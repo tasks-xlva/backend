@@ -10,7 +10,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from routes.groups.views import GroupViewSet, MembershipViewSet
+from routes.groups.views import GroupViewSet, MembershipViewSet, JoinGroupView
 from routes.subjects.views import SubjectViewSet
 from routes.tasks.views import TaskViewSet
 from routes.users.views import UserViewSet
@@ -36,6 +36,7 @@ urlpatterns = [
     path("token/refresh", TokenRefreshView.as_view(), name="token_refresh"),
     path("users/me", MyProfileViewSet.as_view()),
     path("users/me/password", MyPasswordView.as_view()),
+    path("join/<uuid:uuid>", JoinGroupView.as_view()),
     *router.urls,
     *groups_router.urls,
 ]
