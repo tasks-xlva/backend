@@ -5,7 +5,7 @@ from routes.users.models import User
 
 
 class Group(models.Model):
-    number = models.CharField(max_length=10)
+    number = models.CharField(max_length=100)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     def __str__(self):
