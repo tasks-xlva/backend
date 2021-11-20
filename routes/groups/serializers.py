@@ -5,7 +5,7 @@ from rest_framework import serializers
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    subjects = FlatSubjectSerializer(many=True)
+    subjects = FlatSubjectSerializer(many=True, required=False)
 
     class Meta:
         model = Group
