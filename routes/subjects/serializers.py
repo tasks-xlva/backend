@@ -11,6 +11,8 @@ class SubjectSerializer(serializers.ModelSerializer):
         model = Subject
         fields = "__all__"
 
-    def create(self, validated_data):
-        group = Group.objects.get(pk=validated_data.pop("group_id"))
-        return Subject.objects.create(**validated_data, group=group)
+
+class FlatSubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        exclude = ["group"]

@@ -1,14 +1,15 @@
-from routes.subjects.serializers import SubjectSerializer
+from routes.subjects.serializers import FlatSubjectSerializer
 from routes.users.serializers import UserSerializer
 from .models import *
 from rest_framework import serializers
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    subjects = FlatSubjectSerializer(many=True)
+
     class Meta:
         model = Group
-        fields = ["id", "number", "subjects", "uuid"]
-        depth = 1
+        fields = "__all__"
 
     def create(self, validated_data):
         group = Group.objects.create(**validated_data)
