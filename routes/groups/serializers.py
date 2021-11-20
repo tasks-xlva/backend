@@ -21,6 +21,9 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class GroupMembershipSerializer(serializers.ModelSerializer):
+    group = serializers.IntegerField(write_only=True)
+    user = UserSerializer()
+
     class Meta:
         model = Membership
         fields = "__all__"
