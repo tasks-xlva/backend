@@ -8,6 +8,7 @@ class Task(models.Model):
     description = models.TextField(max_length=1000)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="tasks")
     attachments = models.ManyToManyField(File, blank=True)
+    deadline = models.DateTimeField(null=True)
 
     def __str__(self):
         return f"{self.subject}, {self.name}"
