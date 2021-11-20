@@ -1,8 +1,14 @@
 from .serializers import *
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, mixins
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class GroupViewSet(
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    viewsets.GenericViewSet,
+):
     serializer_class = GroupSerializer
     queryset = Group.objects.all()
     permission_classes = [permissions.IsAuthenticated]
@@ -11,7 +17,12 @@ class GroupViewSet(viewsets.ModelViewSet):
         return Group.objects.filter(membership__user=self.request.user)
 
 
-class MembershipViewSet(viewsets.ModelViewSet):
+class MembershipViewSet(
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    viewsets.GenericViewSet,
+):
     serializer_class = GroupMembershipSerializer
     queryset = Membership.objects.none()
     permission_classes = [permissions.IsAuthenticated]
