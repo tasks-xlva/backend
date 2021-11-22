@@ -4,7 +4,7 @@ install:
 freeze:
 	pip freeze > requirements.txt
 
-start:
+start_dev_db:
 	docker-compose up -d
 
 migrations:
