@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework import permissions
-from .serializers import TaskSerializer
+from .serializers import *
 from .models import Task
 
 
@@ -11,3 +11,8 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Task.objects.filter(subject__group__membership__user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action == "retrieve" or self.action == "list":
+            return TaskListRetrieveSerializer
+        return TaskSerializer
