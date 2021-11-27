@@ -14,7 +14,7 @@ class GroupSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         group = Group.objects.create(**validated_data)
         Membership.objects.create(
-            group=group, user=self.context["request"].user, role="EDITOR"
+            group=group, user=self.context["request"].user, role="ADMIN"
         )
 
         return group
