@@ -29,9 +29,7 @@ class MembershipViewSet(
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Membership.objects.filter(
-            user=self.request.user, group=self.kwargs["group_pk"]
-        )
+        return Membership.objects.filter(group=self.kwargs["group_pk"])
 
 
 class JoinGroupView(generics.CreateAPIView):
