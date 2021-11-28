@@ -5,7 +5,7 @@ from rest_framework import serializers
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    subjects = FlatSubjectSerializer(many=True, required=False)
+    subjects = FlatSubjectSerializer(many=True, required=False, read_only=True)
 
     class Meta:
         model = Group
@@ -30,15 +30,15 @@ class GroupMembershipSerializer(serializers.ModelSerializer):
 
 
 class JoinGroupSerializer(serializers.ModelSerializer):
+    uuid = serializers.UUIDField(write_only=True)
+
     class Meta:
         model = Membership
-        fields = ["group", "role"]
+        fields = ["group", "role", "uuid"]
         read_only_fields = ["group", "role"]
 
     def create(self, validated_data):
-        group = Group.objects.get(
-            uuid=self.context["request"].parser_context.get("kwargs").get("uuid")
-        )
+        group = Group.objects.get(uuid=validated_data["uuid"])
         membership = Membership.objects.create(
             group=group, user=self.context["request"].user, role="EDITOR"
         )

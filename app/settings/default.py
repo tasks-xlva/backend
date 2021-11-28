@@ -44,6 +44,7 @@ DJANGO_APPS = [
 
 OTHER_APPS = [
     "rest_framework",
+    "djoser",
     "corsheaders",
     "drf_spectacular",
     "drf_spectacular_sidecar",
@@ -70,9 +71,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "app.urls"
-
-print(BASE_DIR)
-print(BASE_DIR / "templates")
 
 TEMPLATES = [
     {
@@ -186,3 +184,26 @@ CORS_ALLOWED_ORIGINS = [
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST = "smtp.yandex.ru"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "tasks@xlvn.ru"
+EMAIL_HOST_PASSWORD = "qnjpfcwftmqaeeiw"
+DEFAULT_FROM_EMAIL = "tasks@xlvn.ru"
+
+FRONTEND_HOST = "tasks.api.xlvn.ru"
+
+DOMAIN = FRONTEND_HOST
+
+DJOSER = {
+    "TOKEN_MODEL": None,
+    "PASSWORD_RESET_CONFIRM_URL": f"restore/confirm/{{uid}}/{{token}}",
+    "USERNAME_RESET_CONFIRM_URL": f"restore/confirm/{{uid}}/{{token}}",
+    "ACTIVATION_URL": f"activate/{{uid}}/{{token}}",
+    "SEND_ACTIVATION_EMAIL": True,
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_RETYPE": True,
+}

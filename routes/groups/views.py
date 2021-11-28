@@ -32,7 +32,7 @@ class MembershipViewSet(
         return Membership.objects.filter(group=self.kwargs["group_pk"])
 
 
-class JoinGroupView(generics.CreateAPIView):
+class JoinGroupView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     serializer_class = JoinGroupSerializer
     queryset = Group.objects.all()
     permission_classes = [permissions.IsAuthenticated]
