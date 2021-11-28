@@ -193,9 +193,7 @@ EMAIL_HOST_USER = "tasks@xlvn.ru"
 EMAIL_HOST_PASSWORD = "qnjpfcwftmqaeeiw"
 DEFAULT_FROM_EMAIL = "tasks@xlvn.ru"
 
-FRONTEND_HOST = "tasks.api.xlvn.ru"
-
-DOMAIN = FRONTEND_HOST
+DOMAIN = "tasks.xlvn.ru"
 
 DJOSER = {
     "TOKEN_MODEL": None,
@@ -207,3 +205,5 @@ DJOSER = {
     "SET_PASSWORD_RETYPE": True,
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
 }
+
+from djoser.email import ActivationEmail
