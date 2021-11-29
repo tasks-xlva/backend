@@ -191,7 +191,7 @@ EMAIL_HOST = "smtp.yandex.ru"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "tasks@xlvn.ru"
 EMAIL_HOST_PASSWORD = "qnjpfcwftmqaeeiw"
-DEFAULT_FROM_EMAIL = "tasks@xlvn.ru"
+DEFAULT_FROM_EMAIL = "noreply@xlvn.ru"
 
 DOMAIN = "tasks.xlvn.ru"
 
