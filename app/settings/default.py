@@ -205,5 +205,3 @@ DJOSER = {
     "SET_PASSWORD_RETYPE": True,
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
 }
-
-from djoser.email import ActivationEmail
