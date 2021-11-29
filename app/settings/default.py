@@ -195,4 +195,5 @@ DJOSER = {
     "USER_CREATE_PASSWORD_RETYPE": True,
     "SET_PASSWORD_RETYPE": True,
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
+    'user': 'routes.users.serializers.UserSerializer'
 }
