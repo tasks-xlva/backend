@@ -3,3 +3,4 @@ env
 .certbot
 .idea
 media
+.envs

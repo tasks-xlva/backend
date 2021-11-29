@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:13-alpine
     env_file:
-      - ./.envs/.local/.postgres.env
+      - .envs/.local/.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
