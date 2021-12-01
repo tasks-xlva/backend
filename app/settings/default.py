@@ -29,6 +29,10 @@ AUTH_USER_MODEL = "users.User"
 
 # Application definition
 
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL=True
+
 DJANGO_APPS = [
     "routes.users",
     "django.contrib.admin",
@@ -171,13 +175,6 @@ SPECTACULAR_SETTINGS = {
         "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields",
     ],
 }
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://tasks.xlvn.ru",
-]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
