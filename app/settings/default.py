@@ -31,7 +31,12 @@ AUTH_USER_MODEL = "users.User"
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://tasks.xlvn.ru",
+]
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 
 DJANGO_APPS = [
     "routes.users",
