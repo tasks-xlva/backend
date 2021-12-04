@@ -15,7 +15,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.none()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
-    filterset_fields = ["subject"]
+    filterset_fields = {"subject": ["in"]}
     search_fields = ["name"]
     ordering_fields = ["deadline"]
 
